@@ -136,16 +136,17 @@
     </script>
     <script>
         window.onload = function() {
+            
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
                 title: {
                     text: "Number of Research Paper per Professor"
                 },
                 subtitles: [{
-                    text: ``
+                    text: `<?php echo $heading ?>`
                 }],
                 data: [{
-                    type: "pie",
+                    type: "doughnut",
                     yValueFormatString: "#,##0.00\"%\"",
                     indexLabel: "{label} ({y})",
                     dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>

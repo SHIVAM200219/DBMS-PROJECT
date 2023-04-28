@@ -2,7 +2,7 @@
             <?php
             $servername = "localhost";
             $port_no = 3306;
-            $username = "dbmsa";
+            $username = "dbms0";
             $password = "project";
             $myDB = "research";
 
@@ -137,8 +137,7 @@
                         }
                         $sum += $value;
                     }
-                    echo "<h5 class =\"d-block text-center\">", $heading, "</h5><br>";
-                    echo "<p class =\"text-center\">Your Query contains ",$sum,"results</p>";
+                    echo "<p class =\"text-center\">Your Query contains ",$sum," results</p>";
                     $dataPoints = array();
                     if ($sum){
                         foreach ($data as $key => $value) {
