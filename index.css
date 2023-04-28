@@ -1,3 +1,55 @@
-.dropdown-item:hover{
+.dropdown-item:hover {
     background-color: black;
+}
+td{
+    padding: 10px;
+}
+tr:nth-child(even) {
+    background-color: #25292c;
+}
+tr:nth-child(odd) {
+    background-color: #343a40;
+}
+/* For mobile devices */
+@media screen and (max-width: 600px) {
+
+/* Remove any fixed width */
+table,
+thead,
+tbody,
+th,
+td,
+tr {
+    display: block;
+    width: 100%;
+}
+th{
+    text-align: center;
+}
+/* Hide table headers */
+thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+/* Set table cell border */
+td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding: 3%;
+}
+
+/* Set table cell content */
+td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    content: attr(data-label);
+    font-weight: bold;
+}
 }
