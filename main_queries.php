@@ -2,7 +2,7 @@
             <?php
             $servername = "localhost";
             $port_no = 3306;
-            $username = "dbms2";
+            $username = "dbmsa";
             $password = "project";
             $myDB = "research";
 
@@ -15,6 +15,7 @@
                 $interesection = array();
                 $ans_professor = array();
                 $ans = array();
+                $heading;
                 if (isset($_POST['prof']) || isset($_POST['domain']) || isset($_POST['year']) || isset($_POST['paper'])) {
 
                     if (isset($_POST['year'])) {
@@ -29,6 +30,8 @@
                                 }
                             }
                         }
+                        $heading = "Year " . $_POST['year'];
+                        // echo $heading;
                     }
                     if (isset($_POST['paper'])) {
                         $r = $conn->query("SELECT * FROM research.research_paper");
@@ -42,13 +45,7 @@
                                 }
                             }
                         }
-                    }
-                    // echo "paper";
-                    // print_r($ans_paper);
-                    // // echo "domain";
-                    // // print_r($ans_domain);
-                    // echo "<br>year";
-                    // print_r($ans_year);
+                    }       
                     if (!empty($ans_paper) && !empty($ans_year)) {
                         $interesection = array_intersect($ans_paper, $ans_year);
                     } elseif (!empty($ans_paper)) {
@@ -56,8 +53,6 @@
                     } elseif (!empty($ans_year)) {
                         $interesection = $ans_year;
                     }
-                    // echo "<br>Intersection";
-                    // print_r($interesection);
                     if (!empty($interesection) && strlen($_POST['prof']) > 0) {
                         $p = $conn->query("SELECT * FROM research.faculty_data");
                         while ($rowp = $p->fetch(PDO::FETCH_ASSOC)) {
@@ -96,10 +91,7 @@
                             }
                         }
                     }
-                    // echo "size", sizeof($ans);
-                    // echo "Answer";
-                    // print_r($ans);
-
+                    
                     $result = array(array('Professor', 'Profwebsite', 'Title', 'Paperlink', 'Citations', 'Autors', 'Publication Date', 'Publisher', 'Conference/Journal'));
                     for ($i = 0; $i < sizeof($ans); $i++) {
                         $tupple = array();
@@ -117,48 +109,44 @@
                         }
                         array_push($result, $tupple);
                     }
-                    // function print_array($arr) {
-                    //     echo "<pre>";
-                    //     print_r($arr);
-                    //     echo "</pre>";
-                    //   }
-
-                    // print_array($result);
-                    function print_table($arr)
-                    {
-                        echo "<table>";
-                        // Print table headers
-                        echo "<tr>";
-                        for ($i = 0; $i < count($arr[0]); $i++) {
-                            if ($i == 1 || $i == 3) {
-                                continue;
-                            }
-                            if ($i == 0 || $i == 2) {
-                                echo "<th>", $arr[0][$i], "</th>";
+                    function countUniqueElements($arr) {
+                        $counts = array();
+                        foreach($arr as $elem) {
+                            if(array_key_exists($elem, $counts)) {
+                                $counts[$elem]++;
                             } else {
-                                echo "<th>", $arr[0][$i], "</th>";
+                                $counts[$elem] = 1;
                             }
                         }
-                        echo "</tr>";
-                        // Print table rows
-                        for ($i = 1; $i < count($arr); $i++) {
-                            echo "<tr>";
-                            for ($j = 0; $j < count($arr[$i]); $j++) {
-                                if ($j == 1 || $j == 3) {
-                                    continue;
-                                } else if ($j == 4) {
-                                    echo "<td class=\"text-center\">", $arr[$i][$j], "</td>";
-                                } else if ($j == 0 || $j == 2) {
-                                    echo "<td><a class=\"text-light\" href='", $arr[$i][$j + 1], "'>", $arr[$i][$j], "</a></td>";
-                                } else {
-                                    echo "<td>", $arr[$i][$j], "</td>";
-                                }
-                            }
-                            echo "</tr>";
-                        }
-                        echo "</table>";
+                        return $counts;
                     }
-
+                    // print_r($ans);
+                    $count_arg = array();
+                    foreach ($ans as $val) {
+                        array_push($count_arg, $val[0]);
+                    }
+                    $counts = countUniqueElements($count_arg);
+                    $data = array();
+                    $sum = 0;
+                    foreach ($counts as $key => $value) {
+                        $p = $conn->query("SELECT * FROM research.faculty_data");
+                        while ($rowp = $p->fetch(PDO::FETCH_ASSOC)) {
+                            if ($key == $rowp['PID']) {
+                                $data[$rowp['pname']] = $value;
+                            }
+                        }
+                        $sum += $value;
+                    }
+                    echo "<h5 class =\"d-block text-center\">", $heading, "</h5><br>";
+                    echo "<p class =\"text-center\">Your Query contains ",$sum,"results</p>";
+                    $dataPoints = array();
+                    if ($sum){
+                        foreach ($data as $key => $value) {
+                            $temp = array("label"=>$key, "y"=>($value*100/$sum));
+                            array_push($dataPoints, $temp);
+                        }
+                    }
+                    include 'print_table.php';
                     print_table($result);
                 }
             } catch (PDOException $e) {

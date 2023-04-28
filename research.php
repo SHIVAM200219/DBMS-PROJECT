@@ -11,57 +11,62 @@
     <link rel="stylesheet" href="index.css">
     <title>MFSDSAI</title>
     <style>
-        td{
+        td {
             padding: 10px;
         }
+
         tr:nth-child(even) {
             background-color: #25292c;
         }
+
         tr:nth-child(odd) {
             background-color: #343a40;
         }
+
         /* For mobile devices */
         @media screen and (max-width: 600px) {
 
-        /* Remove any fixed width */
-        table,
-        thead,
-        tbody,
-        th,
-        td,
-        tr {
-            display: block;
-            width: 100%;
-        }
-        th{
-            text-align: center;
-        }
-        /* Hide table headers */
-        thead tr {
-            position: absolute;
-            top: -9999px;
-            left: -9999px;
-        }
+            /* Remove any fixed width */
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                display: block;
+                width: 100%;
+            }
 
-        /* Set table cell border */
-        td {
-            border: none;
-            border-bottom: 1px solid #eee;
-            position: relative;
-            padding: 3%;
-        }
+            th {
+                text-align: center;
+            }
 
-        /* Set table cell content */
-        td:before {
-            position: absolute;
-            top: 6px;
-            left: 6px;
-            width: 45%;
-            padding-right: 10px;
-            white-space: nowrap;
-            content: attr(data-label);
-            font-weight: bold;
-        }
+            /* Hide table headers */
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            /* Set table cell border */
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding: 3%;
+            }
+
+            /* Set table cell content */
+            td:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                content: attr(data-label);
+                font-weight: bold;
+            }
         }
     </style>
 </head>
@@ -101,7 +106,9 @@
     </section>
     <!-- Queries -->
     <section id="queries" class="bg-dark text-light">
-    <?php include 'main_queries.php';?>
+        <div class="bg-secondary" id="chartContainer" style="height: 370px; width: 100%; background-color:#343a40"></div>
+        <?php include 'main_queries.php'; ?>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </section>
     <!-- Footer -->
     <div id="foot_loc">
@@ -125,6 +132,27 @@
     <script>
         window.onload = function() {
             document.getElementById('nav_research').classList.add('active');
+        }
+    </script>
+    <script>
+        window.onload = function() {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Number of Research Paper per Professor"
+                },
+                subtitles: [{
+                    text: ``
+                }],
+                data: [{
+                    type: "pie",
+                    yValueFormatString: "#,##0.00\"%\"",
+                    indexLabel: "{label} ({y})",
+                    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                }]
+            });
+            chart.render();
+
         }
     </script>
 </body>
