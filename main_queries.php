@@ -141,7 +141,7 @@
                     $dataPoints = array();
                     if ($sum){
                         foreach ($data as $key => $value) {
-                            $temp = array("label"=>$key, "y"=>($value*100/$sum));
+                            $temp = array("label"=>$key, "y"=>($value));
                             array_push($dataPoints, $temp);
                         }
                     }

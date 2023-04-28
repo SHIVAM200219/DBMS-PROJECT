@@ -97,7 +97,17 @@
                 <br>
                 <small class="d-block text-center text-light">Please fill at one of the fields</small>
                 <br>
-                <div class="d-flex justify-content-center">
+                <p class="p-1 text-center text-light">Please select your favorite plot: 
+                 <input type="radio" id="bar" name="plot" value="bar">
+                 <label class= "text-white"for="bar"> Bar</label>
+                 <input type="radio" id="doughnut" name="plot" value="doughnut">
+                 <label class= "text-white"for="doughnut"> Doughnut</label>
+                 <input type="radio" id="pie" name="plot" value="pie">
+                 <label class= "text-white"for="pie">Pie</label>
+                 <br>
+                 </p>
+                <br>
+                <div class="d-flex justi fy-content-center">
                     <button type="reset" value="Reset" name="reset" class="btn btn-danger m-2">Reset</button>
                     <button type="submit" value="Submit" name="submit" class="btn btn-success m-2">Submit</button>
                 </div>
@@ -136,7 +146,7 @@
     </script>
     <script>
         window.onload = function() {
-            
+
             var chart = new CanvasJS.Chart("chartContainer", {
                 animationEnabled: true,
                 title: {
@@ -146,8 +156,8 @@
                     text: `<?php echo $heading ?>`
                 }],
                 data: [{
-                    type: "doughnut",
-                    yValueFormatString: "#,##0.00\"%\"",
+                    type: `<?php echo $_POST['plot'] ?>`,
+                    yValueFormatString: "#,##0\"\"",
                     indexLabel: "{label} ({y})",
                     dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
                 }]

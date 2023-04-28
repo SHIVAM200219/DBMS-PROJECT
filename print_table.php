@@ -7,11 +7,8 @@
         for ($i = 0; $i < count($arr[0]); $i++) {
             if ($i == 1 || $i == 3) {
                 continue;
-            }
-            if ($i == 0 || $i == 2) {
-                echo "<th>", $arr[0][$i], "</th>";
             } else {
-                echo "<th>", $arr[0][$i], "</th>";
+                echo "<th class=\"text-center\">", $arr[0][$i], "</th>";
             }
         }
         echo "</tr>";
