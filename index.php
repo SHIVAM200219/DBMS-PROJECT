@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <title>MFSDSAI</title>
 </head>
@@ -20,7 +19,7 @@
     <!-- Navbar -->
     <div id="nav_loc" class="">
     </div>
-    
+
     <div class="bg-secondary">
         <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -64,30 +63,76 @@
         </div>
     </div>
 
+    <section>
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <?php include 'variables.php';?>
+            <?php
+            try {
+            $conn = new PDO("mysql:host=$servername;port=$port_no;dbname=$myDB", $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            $citations = array();
+            $pname = array();
+            $start_year = 2018;
+            $end_year = 2023;
+            $c = $conn->query("SELECT * FROM research.citations_per_year_count");
+            while ($rowc = $c->fetch(PDO::FETCH_ASSOC)) {
+                if ($rowc['PID'] == 1) {
+                    continue;
+                }else if ($rowc['PID'] == 6) {
+                    break;
+                }else{
+                    if ($rowc['citation_year'] >= $start_year && $rowc['citation_year'] <= $end_year) {
+                        array_push($citations,$rowc['citation_count']);
+                    }
+                    
+                }
+            }
+            $p = $conn->query("SELECT * FROM research.faculty_data");
+            while ($rowp = $p->fetch(PDO::FETCH_ASSOC)) {
+                if ($rowp['PID'] == 1) {
+                    continue;
+                }else if ($rowp['PID'] == 6) {
+                    break;
+                }else{
+                        array_push($pname,$rowp['pname']);
+                }
+            }
+        } catch (PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+
+        ?>
+    </section>
+
     <!-- Footer -->
     <div id="foot_loc">
     </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
-    <script>$("#header_loc").load("header.html");</script>
-    <script>$("#nav_loc").load("navbar.html");</script>
-    <script>$("#foot_loc").load("footer.html");</script>
     <script>
-        window.onload = function () {
-            document.getElementById('nav_home').classList.add('active');
-        }
+        $("#header_loc").load("header.html");
     </script>
+    <script>
+        $("#nav_loc").load("navbar.html");
+    </script>
+    <script>
+        $("#foot_loc").load("footer.html");
+    </script>
+    <!-- <script>
+        window.onload = function() {
+            // document.getElementById('nav_home').classList.add('active');
+        }
+    </script> -->
+    <?php include 'citationPerYear.php'; ?>
+    <?php include 'citation.php'; ?>
 </body>
 
 </html>

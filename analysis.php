@@ -43,7 +43,7 @@
             document.getElementById('nav_analysis').classList.add('active');
         }
     </script>
-
+    
 </body>
 
 </html>

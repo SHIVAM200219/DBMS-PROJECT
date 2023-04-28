@@ -1,11 +1,6 @@
 <!-- <div class=""> -->
+        <?php include 'variables.php';?>
             <?php
-            $servername = "localhost";
-            $port_no = 3306;
-            $username = "dbms0";
-            $password = "project";
-            $myDB = "research";
-
             try {
                 $conn = new PDO("mysql:host=$servername;port=$port_no;dbname=$myDB", $username, $password);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -17,7 +12,7 @@
                 $ans = array();
                 $heading;
                 if (isset($_POST['prof']) || isset($_POST['domain']) || isset($_POST['year']) || isset($_POST['paper'])) {
-
+                    $start = microtime(true);
                     if (isset($_POST['year'])) {
                         $r = $conn->query("SELECT * FROM research.research_paper");
                         while ($rowr = $r->fetch(PDO::FETCH_ASSOC)) {
@@ -30,7 +25,11 @@
                                 }
                             }
                         }
-                        $heading = "Year " . $_POST['year'];
+                       if (strlen($_POST['year'])) {
+                            $heading = "Year " . $_POST['year'];
+                       }else {
+                            $heading = " ";
+                       }
                         // echo $heading;
                     }
                     if (isset($_POST['paper'])) {
@@ -92,7 +91,7 @@
                         }
                     }
                     
-                    $result = array(array('Professor', 'Profwebsite', 'Title', 'Paperlink', 'Citations', 'Autors', 'Publication Date', 'Publisher', 'Conference/Journal'));
+                    $result = array(array('Professor', 'Profwebsite', 'Title', 'Paperlink', 'Citations', 'Authors', 'Publication Date', 'Publisher', 'Conference/Journal'));
                     for ($i = 0; $i < sizeof($ans); $i++) {
                         $tupple = array();
                         $p = $conn->query("SELECT * FROM research.faculty_data");
@@ -120,7 +119,6 @@
                         }
                         return $counts;
                     }
-                    // print_r($ans);
                     $count_arg = array();
                     foreach ($ans as $val) {
                         array_push($count_arg, $val[0]);
@@ -137,7 +135,8 @@
                         }
                         $sum += $value;
                     }
-                    echo "<p class =\"text-center\">Your Query contains ",$sum," results</p>";
+                    $end = microtime(true);
+                    echo "<p class =\"text-center\">Your Query contains ",$sum," results and took ",$end - $start," seconds</p>";
                     $dataPoints = array();
                     if ($sum){
                         foreach ($data as $key => $value) {
@@ -145,6 +144,7 @@
                             array_push($dataPoints, $temp);
                         }
                     }
+                    
                     include 'print_table.php';
                     print_table($result);
                 }

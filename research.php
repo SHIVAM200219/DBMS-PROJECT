@@ -10,65 +10,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <title>MFSDSAI</title>
-    <style>
-        td {
-            padding: 10px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #25292c;
-        }
-
-        tr:nth-child(odd) {
-            background-color: #343a40;
-        }
-
-        /* For mobile devices */
-        @media screen and (max-width: 600px) {
-
-            /* Remove any fixed width */
-            table,
-            thead,
-            tbody,
-            th,
-            td,
-            tr {
-                display: block;
-                width: 100%;
-            }
-
-            th {
-                text-align: center;
-            }
-
-            /* Hide table headers */
-            thead tr {
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
-            }
-
-            /* Set table cell border */
-            td {
-                border: none;
-                border-bottom: 1px solid #eee;
-                position: relative;
-                padding: 3%;
-            }
-
-            /* Set table cell content */
-            td:before {
-                position: absolute;
-                top: 6px;
-                left: 6px;
-                width: 45%;
-                padding-right: 10px;
-                white-space: nowrap;
-                content: attr(data-label);
-                font-weight: bold;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -97,15 +38,15 @@
                 <br>
                 <small class="d-block text-center text-light">Please fill at one of the fields</small>
                 <br>
-                <p class="p-1 text-center text-light">Please select your favorite plot: 
-                 <input type="radio" id="bar" name="plot" value="bar">
-                 <label class= "text-white"for="bar"> Bar</label>
-                 <input type="radio" id="doughnut" name="plot" value="doughnut">
-                 <label class= "text-white"for="doughnut"> Doughnut</label>
-                 <input type="radio" id="pie" name="plot" value="pie">
-                 <label class= "text-white"for="pie">Pie</label>
-                 <br>
-                 </p>
+                <p class="p-1 text-center text-light">Please select your favorite plot:
+                    <input type="radio" id="bar" name="plot" value="bar">
+                    <label class="text-white" for="bar"> Bar</label>
+                    <input type="radio" id="doughnut" name="plot" value="doughnut">
+                    <label class="text-white" for="doughnut"> Doughnut</label>
+                    <input type="radio" id="pie" name="plot" value="pie">
+                    <label class="text-white" for="pie">Pie</label>
+                    <br>
+                </p>
                 <br>
                 <div class="d-flex justi fy-content-center">
                     <button type="reset" value="Reset" name="reset" class="btn btn-danger m-2">Reset</button>
@@ -115,10 +56,12 @@
         </div>
     </section>
     <!-- Queries -->
-    <section id="queries" class="bg-dark text-light">
-        <div class="bg-secondary" id="chartContainer" style="height: 370px; width: 100%; background-color:#343a40"></div>
+    <section id="queries" class="bg-secondary text-light">
+        <div class="d-flex flex-wrap flex-md-nowrap bg-secondary  mb-2 mx-auto rounded justify-content-around">
+            <div class="m-2 shadow-lg" id="chartContainer0" style="height: 370px; width: 100%; background-color:#343a40"></div>
+            <div class="m-2 shadow-lg" id="chartContainer1" style="height: 370px; width: 100%; background-color:#343a40"></div>
+        </div>
         <?php include 'main_queries.php'; ?>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </section>
     <!-- Footer -->
     <div id="foot_loc">
@@ -144,28 +87,8 @@
             document.getElementById('nav_research').classList.add('active');
         }
     </script>
-    <script>
-        window.onload = function() {
-
-            var chart = new CanvasJS.Chart("chartContainer", {
-                animationEnabled: true,
-                title: {
-                    text: "Number of Research Paper per Professor"
-                },
-                subtitles: [{
-                    text: `<?php echo $heading ?>`
-                }],
-                data: [{
-                    type: `<?php echo $_POST['plot'] ?>`,
-                    yValueFormatString: "#,##0\"\"",
-                    indexLabel: "{label} ({y})",
-                    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-                }]
-            });
-            chart.render();
-
-        }
-    </script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <?php include 'research_plot.php'; ?>
 </body>
 
 </html>

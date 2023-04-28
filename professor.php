@@ -49,8 +49,8 @@
                                                 <div class="card-body">
                                                         <h5 class="card-title"><a href="https://debanga.github.io/" class="text-light">Dr. Debanga
                                                                         Raj Neog</a></h5>
-                                                        <p class="card-text"><a class="text-light" href="mailto:dneogiitg.ac.in">Email :
-                                                                        dneogiitg.ac.in</a></p>
+                                                        <p class="card-text"><a class="text-light" href="mailto:dneog@iitg.ac.in">Email :
+                                                                        dneog@iitg.ac.in</a></p>
                                                         <p class="card-text"><a class="text-light" href="tel:+91-361-258-3504">Telephone :
                                                                         +91-361-258-3504</a></p>
                                                         <p class="card-text text-left">Research Areas: Machine learning and Deep Learning (Object
@@ -65,8 +65,8 @@
                                                 <div class="card-body">
                                                         <h5 class="card-title"><a href="https://neerajww.github.io/" class="text-light">Dr. Neeraj
                                                                         Kumar Sharma</a></h5>
-                                                        <p class="card-text"><a class="text-light" href="mailto:neerajsiitg.ac.in">Email :
-                                                                        neerajsiitg.ac.in</a></p>
+                                                        <p class="card-text"><a class="text-light" href="mailto:neerajs@iitg.ac.in">Email :
+                                                                        neerajs@iitg.ac.in</a></p>
                                                         <p class="card-text"><a class="text-light" href="tel:+91-361-258-3507">Telephone :
                                                                         +91-361-258-3507</a></p>
                                                         <p class="card-text text-left">Research Areas: Sensing, exploration, and understanding of
@@ -81,8 +81,8 @@
                                                 <div class="card-body">
                                                         <h5 class="card-title"><a href="https://sites.google.com/view/arghyadiproy/home" class="text-light">Dr. Arghyadip
                                                                         Roy</a></h5>
-                                                        <p class="card-text"><a class="text-light" href="mailto:arghyadipiitg.ac.in">Email :
-                                                                        arghyadipiitg.ac.in</a></p>
+                                                        <p class="card-text"><a class="text-light" href="mailto:arghyadip@iitg.ac.in">Email :
+                                                                        arghyadip@iitg.ac.in</a></p>
                                                         <p class="card-text"><a class="text-light" href="tel:+91-361-258-3505">Telephone :
                                                                         +91-361-258-3505</a></p>
                                                         <p class="card-text text-left">Research Areas: Optimization and Control of Stochastic
@@ -97,8 +97,8 @@
                                                         <h5 class="card-title"><a href="https://www.iitg.ac.in/rhythmgrover/" class="text-light">Dr.
                                                                         Rhythm
                                                                         Grover</a></h5>
-                                                        <p class="card-text"><a class="text-light" href="mailto:rhythmgroveriitg.ac.in">Email :
-                                                                        rhythmgroveriitg.ac.in</a></p>
+                                                        <p class="card-text"><a class="text-light" href="mailto:rhythmgrover@iitg.ac.in">Email :
+                                                                        rhythmgrover@iitg.ac.in</a></p>
                                                         <p class="card-text"><a class="text-light" href="tel:+91-361-258-3503">Telephone :
                                                                         +91-361-258-3503</a></p>
                                                         <p class="card-text text-left">Research Areas: Efficient Algorithms for parameter
