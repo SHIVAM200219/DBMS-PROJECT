@@ -14,13 +14,13 @@
                 if (isset($_POST['prof']) || isset($_POST['domain']) || isset($_POST['year']) || isset($_POST['paper'])) {
                     $start = microtime(true);
                     if (isset($_POST['year'])) {
-                        $r = $conn->query("SELECT * FROM research.research_paper");
+                        $r = $conn->query("SELECT * FROM research.research_data");
                         while ($rowr = $r->fetch(PDO::FETCH_ASSOC)) {
-                            if ($_POST['year'] == $rowr['publication_year']) {
-                                $pr = $conn->query("SELECT * FROM research.relation_rid2pid");
+                            if ($_POST['year'] == $rowr['ryear']) {
+                                $pr = $conn->query("SELECT * FROM research.relation_pid_to_rid");
                                 while ($rowpr = $pr->fetch(PDO::FETCH_ASSOC)) {
-                                    if ($rowr['RID'] == $rowpr['RID']) {
-                                        array_push($ans_year, $rowpr['RID']);
+                                    if ($rowr['rid'] == $rowpr['rid']) {
+                                        array_push($ans_year, $rowpr['rid']);
                                     }
                                 }
                             }
@@ -33,13 +33,13 @@
                         // echo $heading;
                     }
                     if (isset($_POST['paper'])) {
-                        $r = $conn->query("SELECT * FROM research.research_paper");
+                        $r = $conn->query("SELECT * FROM research.research_data");
                         while ($rowr = $r->fetch(PDO::FETCH_ASSOC)) {
-                            if (strlen($_POST['paper']) > 0 && str_contains(strtolower($rowr['Title']), strtolower($_POST['paper']))) {
-                                $pr = $conn->query("SELECT * FROM research.relation_rid2pid");
+                            if (strlen($_POST['paper']) > 0 && str_contains(strtolower($rowr['rtitle']), strtolower($_POST['paper']))) {
+                                $pr = $conn->query("SELECT * FROM research.relation_pid_to_rid");
                                 while ($rowpr = $pr->fetch(PDO::FETCH_ASSOC)) {
-                                    if ($rowr['RID'] == $rowpr['RID']) {
-                                        array_push($ans_paper, $rowpr['RID']);
+                                    if ($rowr['rid'] == $rowpr['rid']) {
+                                        array_push($ans_paper, $rowpr['rid']);
                                     }
                                 }
                             }
@@ -53,39 +53,39 @@
                         $interesection = $ans_year;
                     }
                     if (!empty($interesection) && strlen($_POST['prof']) > 0) {
-                        $p = $conn->query("SELECT * FROM research.faculty_data");
+                        $p = $conn->query("SELECT * FROM research.prof_data");
                         while ($rowp = $p->fetch(PDO::FETCH_ASSOC)) {
                             if (strlen($_POST['prof']) > 0 && str_contains(strtolower($rowp['pname']), strtolower($_POST['prof']))) {
-                                $pr = $conn->query("SELECT * FROM research.relation_rid2pid");
+                                $pr = $conn->query("SELECT * FROM research.relation_pid_to_rid");
                                 while ($rowpr = $pr->fetch(PDO::FETCH_ASSOC)) {
-                                    if ($rowp['PID'] == $rowpr['PID']) {
-                                        array_push($ans_professor, $rowpr['RID']);
+                                    if ($rowp['pid'] == $rowpr['pid']) {
+                                        array_push($ans_professor, $rowpr['rid']);
                                     }
                                 }
                                 $interesection_prof = array_intersect($interesection, $ans_professor);
                                 foreach ($interesection_prof as $i) {
-                                    array_push($ans, array($rowp['PID'], $i));
+                                    array_push($ans, array($rowp['pid'], $i));
                                 }
                             }
                         }
                     } else if (strlen($_POST['prof']) > 0) {
-                        $p = $conn->query("SELECT * FROM research.faculty_data");
+                        $p = $conn->query("SELECT * FROM research.prof_data");
                         while ($rowp = $p->fetch(PDO::FETCH_ASSOC)) {
                             if (strlen($_POST['prof']) > 0 && str_contains(strtolower($rowp['pname']), $_POST['prof'])) {
-                                $pr = $conn->query("SELECT * FROM research.relation_rid2pid");
+                                $pr = $conn->query("SELECT * FROM research.relation_pid_to_rid");
                                 while ($rowpr = $pr->fetch(PDO::FETCH_ASSOC)) {
-                                    if ($rowp['PID'] == $rowpr['PID']) {
-                                        array_push($ans, array($rowpr['PID'], $rowpr['RID']));
+                                    if ($rowp['pid'] == $rowpr['pid']) {
+                                        array_push($ans, array($rowpr['pid'], $rowpr['rid']));
                                     }
                                 }
                             }
                         }
                     } else {
                         for ($i = 0; $i < sizeof($interesection); $i++) {
-                            $pr = $conn->query("SELECT * FROM research.relation_rid2pid");
+                            $pr = $conn->query("SELECT * FROM research.relation_pid_to_rid");
                             while ($rowpr = $pr->fetch(PDO::FETCH_ASSOC)) {
-                                if ($interesection[$i] == $rowpr['RID']) {
-                                    array_push($ans, array($rowpr['PID'], $interesection[$i]));
+                                if ($interesection[$i] == $rowpr['rid']) {
+                                    array_push($ans, array($rowpr['pid'], $interesection[$i]));
                                 }
                             }
                         }
@@ -94,16 +94,16 @@
                     $result = array(array('Professor', 'Profwebsite', 'Title', 'Paperlink', 'Citations', 'Authors', 'Publication Date', 'Publisher', 'Conference/Journal'));
                     for ($i = 0; $i < sizeof($ans); $i++) {
                         $tupple = array();
-                        $p = $conn->query("SELECT * FROM research.faculty_data");
+                        $p = $conn->query("SELECT * FROM research.prof_data");
                         while ($rowp = $p->fetch(PDO::FETCH_ASSOC)) {
-                            if ($ans[$i][0] == $rowp['PID']) {
+                            if ($ans[$i][0] == $rowp['pid']) {
                                 array_push($tupple, $rowp['pname'], $rowp['pwebsite']);
                             }
                         }
-                        $r = $conn->query("SELECT * FROM research.research_paper");
+                        $r = $conn->query("SELECT * FROM research.research_data");
                         while ($rowr = $r->fetch(PDO::FETCH_ASSOC)) {
-                            if ($ans[$i][1] == $rowr['RID']) {
-                                array_push($tupple, $rowr['Title'], $rowr['paper_link'],  $rowr['citations'],  $rowr['authors'],  $rowr['publication_date'], $rowr['publisher'], $rowr['Conference/Journal']);
+                            if ($ans[$i][1] == $rowr['rid']) {
+                                array_push($tupple, $rowr['rtitle'], $rowr['rlink'],  $rowr['rcitations'],  $rowr['rauthors'],  $rowr['rpublicationdate'], $rowr['rpublisher'], $rowr['rconference_journal']);
                             }
                         }
                         array_push($result, $tupple);
@@ -127,9 +127,9 @@
                     $data = array();
                     $sum = 0;
                     foreach ($counts as $key => $value) {
-                        $p = $conn->query("SELECT * FROM research.faculty_data");
+                        $p = $conn->query("SELECT * FROM research.prof_data");
                         while ($rowp = $p->fetch(PDO::FETCH_ASSOC)) {
-                            if ($key == $rowp['PID']) {
+                            if ($key == $rowp['pid']) {
                                 $data[$rowp['pname']] = $value;
                             }
                         }
