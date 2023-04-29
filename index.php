@@ -80,11 +80,11 @@
             $pname = array();
             $start_year = 2018;
             $end_year = 2023;
-            $c = $conn->query("SELECT * FROM research.citations_per_year_count");
+            $c = $conn->query("SELECT * FROM research.citations_year");
             while ($rowc = $c->fetch(PDO::FETCH_ASSOC)) {
-                if ($rowc['PID'] == 1) {
+                if ($rowc['pid'] == 1) {
                     continue;
-                } else if ($rowc['PID'] == 6) {
+                } else if ($rowc['pid'] == 6) {
                     break;
                 } else {
                     if ($rowc['citation_year'] >= $start_year && $rowc['citation_year'] <= $end_year) {
@@ -92,11 +92,11 @@
                     }
                 }
             }
-            $p = $conn->query("SELECT * FROM research.faculty_data");
+            $p = $conn->query("SELECT * FROM research.prof_data");
             while ($rowp = $p->fetch(PDO::FETCH_ASSOC)) {
-                if ($rowp['PID'] == 1) {
+                if ($rowp['pid'] == 1) {
                     continue;
-                } else if ($rowp['PID'] == 6) {
+                } else if ($rowp['pid'] == 6) {
                     break;
                 } else {
                     array_push($pname, $rowp['pname']);
