@@ -12,7 +12,7 @@
     <title>MFSDSAI</title>
 </head>
 
-<body>
+<body class="bg-secondary">
     <!-- Header -->
     <div id="header_loc">
     </div>
@@ -64,15 +64,18 @@
     </div>
 
     <section>
-        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-        <div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+        <div class="d-flex flex-wrap flex-md-nowrap bg-secondary  mb-2 mx-auto rounded justify-content-around">
+            <div class="m-2 shadow-lg" id="chartContainer" style="height: 300px; width: 100%;"></div>
+            <div class="m-2 bg-light p-auto shadow-lg" id="chartContainer1" style="height: 300px; width: 100%; margin-bottom:-20px;"><iframe name="ngram_chart"class="pl-3"
+							src="https://books.google.com/ngrams/interactive_chart?content=electrical+engineering,mechanical+engineering,artificial+intelligence,computer+science&year_start=1880&year_end=2023&corpus=26&smoothing=3"
+							width= 100% height="250"></iframe> <p class="text-center bg-light">Artificial Intelligence is gaining popularity</p> </div>
+        </div>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-        <?php include 'variables.php';?>
-            <?php
-            try {
+        <?php include 'variables.php'; ?>
+        <?php
+        try {
             $conn = new PDO("mysql:host=$servername;port=$port_no;dbname=$myDB", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
             $citations = array();
             $pname = array();
             $start_year = 2018;
@@ -81,23 +84,22 @@
             while ($rowc = $c->fetch(PDO::FETCH_ASSOC)) {
                 if ($rowc['PID'] == 1) {
                     continue;
-                }else if ($rowc['PID'] == 6) {
+                } else if ($rowc['PID'] == 6) {
                     break;
-                }else{
+                } else {
                     if ($rowc['citation_year'] >= $start_year && $rowc['citation_year'] <= $end_year) {
-                        array_push($citations,$rowc['citation_count']);
+                        array_push($citations, $rowc['citation_count']);
                     }
-                    
                 }
             }
             $p = $conn->query("SELECT * FROM research.faculty_data");
             while ($rowp = $p->fetch(PDO::FETCH_ASSOC)) {
                 if ($rowp['PID'] == 1) {
                     continue;
-                }else if ($rowp['PID'] == 6) {
+                } else if ($rowp['PID'] == 6) {
                     break;
-                }else{
-                        array_push($pname,$rowp['pname']);
+                } else {
+                    array_push($pname, $rowp['pname']);
                 }
             }
         } catch (PDOException $e) {
@@ -126,11 +128,11 @@
     <script>
         $("#foot_loc").load("footer.html");
     </script>
-    <!-- <script>
+    <script>
         window.onload = function() {
-            // document.getElementById('nav_home').classList.add('active');
+            document.getElementById('nav_home').classList.add('active');
         }
-    </script> -->
+    </script>
     <?php include 'citationPerYear.php'; ?>
     <?php include 'citation.php'; ?>
 </body>
