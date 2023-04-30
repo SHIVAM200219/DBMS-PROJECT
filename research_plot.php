@@ -1,6 +1,7 @@
 <script>
         window.onload = function() {
             const title = ['Professor', 'Domain']
+            dataPoints = [<?php echo json_encode($dataPoints_prof, JSON_NUMERIC_CHECK); ?>, <?php echo json_encode($dataPoints_domain, JSON_NUMERIC_CHECK); ?>]
             for (let index = 0; index < 2; index++) {
                 document.getElementById("chart").classList.remove('d-none');
                 document.getElementById("chart").classList.add('d-flex');
@@ -8,16 +9,16 @@
                 animationEnabled: true,
                 theme: "dark2",
                 title: {
-                    text: `No. of Research Papers per professor ${title[index]} `
+                    text: `No. of Research Papers per ${title[index]} `
                 },
                 subtitles: [{
                     text: `<?php echo $heading?>`
                 }],
                 data: [{
                     type: "<?php echo $_POST['plot']?>",
-                    yValueFormatString: "#,##\"\"",
+                    yValueFormatString: "###\"\"",
                     indexLabel: "{label} ({y})",
-                    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                    dataPoints: dataPoints[index] 
                 }]
             });
             chart.render();

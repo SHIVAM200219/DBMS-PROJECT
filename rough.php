@@ -10,12 +10,17 @@ try {
     $ans_professor = array();
     $ans = array();
     $heading;
+    // && !(isset($_POST['is_mfsdsai']) && $_POST['is_mfsdsai'] == "yes" && $rowr['ris_mfdsai'] == 0)
+    $r_mfs =  $conn->query("SELECT * FROM research.research_data");
+    // if (isset($_POST['is_mfsdsai']) && $_POST['is_mfsdsai'] == "yes") {
+    //     $r_mfs =  $conn->query("SELECT * FROM research.research_data WHERE ris_mfdsai = 1");
+    // }
     if (isset($_POST['prof']) || isset($_POST['domain']) || isset($_POST['year']) || isset($_POST['paper'])) {
         $start = microtime(true);
         if (isset($_POST['year'])) {
-            $r = $conn->query("SELECT * FROM research.research_data");
+            $r = $r_mfs;
             while ($rowr = $r->fetch(PDO::FETCH_ASSOC)) {
-                if ($_POST['year'] == $rowr['ryear'] && !(isset($_POST['is_mfsdsai']) && $_POST['is_mfsdsai'] == "yes" && $rowr['ris_mfdsai'] == 0)) {
+                if ($_POST['year'] == $rowr['ryear'] ) {
                     $pr = $conn->query("SELECT * FROM research.relation_pid_to_rid");
                     while ($rowpr = $pr->fetch(PDO::FETCH_ASSOC)) {
                         if ($rowr['rid'] == $rowpr['rid']) {
@@ -30,14 +35,14 @@ try {
                 $heading = " ";
             }
         }
-
+        
         if (isset($_POST['paper'])) {
             $r = $conn->query("SELECT * FROM research.research_data");
             while ($rowr = $r->fetch(PDO::FETCH_ASSOC)) {
                 if (strlen($_POST['paper']) > 0 && str_contains(strtolower($rowr['rtitle']), strtolower($_POST['paper']))) {
                     $pr = $conn->query("SELECT * FROM research.relation_pid_to_rid");
                     while ($rowpr = $pr->fetch(PDO::FETCH_ASSOC)) {
-                        if ($rowr['rid'] == $rowpr['rid'] && !(isset($_POST['is_mfsdsai']) && $_POST['is_mfsdsai'] == "yes" && $rowr['ris_mfdsai'] == 0)) {
+                        if ($rowr['rid'] == $rowpr['rid']) {
                             array_push($ans_paper, $rowpr['rid']);
                         }
                     }
@@ -58,16 +63,7 @@ try {
                 while ($rowdr = $dr->fetch(PDO::FETCH_ASSOC)) {
                     $label = $rowdr['rdomain_label'];
                     if ($label[$did[$i] - 1] == '1') {
-                        if (isset($_POST['is_mfsdsai']) && $_POST['is_mfsdsai'] == "yes") {
-                            $r = $conn->query("SELECT * FROM research.research_data");
-                            while ($rowr = $r->fetch(PDO::FETCH_ASSOC)) {
-                                if ($rowr['rid'] == $rowdr['rid'] && $rowr['ris_mfdsai'] == 1) {
-                                    array_push($ans_domain, $rowdr['rid']);
-                                }
-                            }
-                        }else {
-                            array_push($ans_domain, $rowdr['rid']);
-                        }                       
+                        array_push($ans_domain, $rowdr['rid']);                
                     }
                 }
             }
@@ -115,16 +111,7 @@ try {
                     $pr = $conn->query("SELECT * FROM research.relation_pid_to_rid");
                     while ($rowpr = $pr->fetch(PDO::FETCH_ASSOC)) {
                         if ($rowp['pid'] == $rowpr['pid']) {
-                            if (isset($_POST['is_mfsdsai']) && $_POST['is_mfsdsai'] == "yes") {
-                                $r = $conn->query("SELECT * FROM research.research_data");
-                                while ($rowr = $r->fetch(PDO::FETCH_ASSOC)) {
-                                    if ($rowr['rid'] == $rowpr['rid'] && $rowr['ris_mfdsai'] == 1) {
-                                        array_push($ans, array($rowpr['pid'], $rowpr['rid']));
-                                    }
-                                }
-                            }else {
-                                array_push($ans, array($rowpr['pid'], $rowpr['rid']));
-                            }   
+                            array_push($ans, array($rowpr['pid'], $rowpr['rid']));
                         }
                     }
                 }

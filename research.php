@@ -47,7 +47,10 @@
                     <label class="text-white" for="pie">Pie</label>
                     <br>
                 </p>
-                <br>
+                <p>
+                <input type="checkbox" id="is_mfsdsai" name="is_mfsdsai" value="yes">
+                <label class="text-white" for="is_mfsdsai">Only MFSDSAI</label><br>
+                </p>
                 <div class="d-flex justi fy-content-center">
                     <button type="reset" value="Reset" name="reset" class="btn btn-danger m-2">Reset</button>
                     <button type="submit" value="Submit" name="submit" class="btn btn-success m-2">Submit</button>

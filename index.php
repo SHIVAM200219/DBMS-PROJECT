@@ -134,7 +134,6 @@
         }
     </script>
     <?php include 'citationPerYear.php'; ?>
-    <?php include 'citation.php'; ?>
 </body>
 
 </html>
