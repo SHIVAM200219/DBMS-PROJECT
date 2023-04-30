@@ -57,7 +57,7 @@
     </section>
     <!-- Queries -->
     <section id="queries" class="bg-secondary text-light">
-        <div class="d-flex flex-wrap flex-md-nowrap bg-secondary  mb-2 mx-auto rounded justify-content-around">
+        <div id="chart" class="d-none flex-wrap flex-md-nowrap bg-secondary  mb-2 mx-auto rounded justify-content-around">
             <div class="m-2 shadow-lg" id="chartContainer0" style="height: 370px; width: 100%; background-color:#343a40"></div>
             <div class="m-2 shadow-lg" id="chartContainer1" style="height: 370px; width: 100%; background-color:#343a40"></div>
         </div>

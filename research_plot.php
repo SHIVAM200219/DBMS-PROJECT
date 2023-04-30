@@ -2,6 +2,8 @@
         window.onload = function() {
             const title = ['Professor', 'Domain']
             for (let index = 0; index < 2; index++) {
+                document.getElementById("chart").classList.remove('d-none');
+                document.getElementById("chart").classList.add('d-flex');
                 var chart = new CanvasJS.Chart(`chartContainer${index}`, {
                 animationEnabled: true,
                 theme: "dark2",
