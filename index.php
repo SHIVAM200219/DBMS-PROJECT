@@ -80,27 +80,13 @@
             $pname = array();
             $start_year = 2018;
             $end_year = 2023;
-            $c = $conn->query("SELECT * FROM research.citations_year");
+            $c = $conn->query("SELECT * FROM research.citations_year WHERE pid BETWEEN 2 AND 5 AND citation_year BETWEEN {$start_year} AND {$end_year}");
             while ($rowc = $c->fetch(PDO::FETCH_ASSOC)) {
-                if ($rowc['pid'] == 1) {
-                    continue;
-                } else if ($rowc['pid'] == 6) {
-                    break;
-                } else {
-                    if ($rowc['citation_year'] >= $start_year && $rowc['citation_year'] <= $end_year) {
-                        array_push($citations, $rowc['citation_count']);
-                    }
-                }
+                array_push($citations, $rowc['citation_count']);
             }
-            $p = $conn->query("SELECT * FROM research.prof_data");
+            $p = $conn->query("SELECT * FROM research.prof_data WHERE pid BETWEEN 2 AND 5");
             while ($rowp = $p->fetch(PDO::FETCH_ASSOC)) {
-                if ($rowp['pid'] == 1) {
-                    continue;
-                } else if ($rowp['pid'] == 6) {
-                    break;
-                } else {
-                    array_push($pname, $rowp['pname']);
-                }
+               array_push($pname, $rowp['pname']);
             }
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
