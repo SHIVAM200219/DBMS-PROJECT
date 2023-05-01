@@ -1,4 +1,4 @@
-<?php include 'variables.php'; ?>
+
 <?php
 try {
     $conn = new PDO("mysql:host=$servername;port=$port_no;dbname=$myDB", $username, $password);

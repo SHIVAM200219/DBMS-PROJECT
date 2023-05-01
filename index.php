@@ -71,7 +71,7 @@
 							width= 100% height="250"></iframe> <p class="text-center bg-light">Artificial Intelligence is gaining popularity</p> </div>
         </div>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-        <?php include 'variables.php'; ?>
+        <?php include 'components/variables.php'; ?>
         <?php
         try {
             $conn = new PDO("mysql:host=$servername;port=$port_no;dbname=$myDB", $username, $password);
@@ -106,20 +106,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <script>
-        $("#header_loc").load("header.html");
+        $("#header_loc").load("components/header.html");
     </script>
     <script>
-        $("#nav_loc").load("navbar.html");
+        $("#nav_loc").load("components/navbar.html");
     </script>
     <script>
-        $("#foot_loc").load("footer.html");
+        $("#foot_loc").load("components/footer.html");
     </script>
     <script>
         window.onload = function() {
             document.getElementById('nav_home').classList.add('active');
         }
     </script>
-    <?php include 'citationPerYear.php'; ?>
+    <?php include 'home/citationPerYear.php'; ?>
 </body>
 
 </html>

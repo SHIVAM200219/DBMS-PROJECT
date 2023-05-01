@@ -18,7 +18,7 @@
             for ($j = 0; $j < count($arr[$i]); $j++) {
                 if ($j == 1 || $j == 3) {
                     continue;
-                } else if ($j == 4) {
+                } else if ($j == 4 || $j == 7) {
                     echo "<td class=\"text-center\">", $arr[$i][$j], "</td>";
                 } else if ($j == 0 || $j == 2) {
                     echo "<td><a class=\"text-light\" href='", $arr[$i][$j + 1], "'>", $arr[$i][$j], "</a></td>";
