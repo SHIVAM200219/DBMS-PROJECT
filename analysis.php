@@ -19,10 +19,15 @@
     <!-- Navbar -->
     <div id="nav_loc">
     </div>
-    <?php include 'components/variables.php'; ?>
-    <div class="d-flex">
-        <div id="chartContainer" style="height: 500px; width: 100%;"></div>
+    <div class="">
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <div id="chartContainer1" style="height: 500px; width: 100%;"></div>
+        <div id="chartContainer2" style="height: 500px; width: 100%;"></div>
+        <div id="chartContainer3" style="height: 500px; width: 100%;"></div>
+        <div id="chartContainer4" style="height: 500px; width: 100%;"></div>
+        <div id="chartContainer5" style="height: 500px; width: 100%;"></div>
+        <div id="chartContainer6" style="height: 500px; width: 100%;"></div>
+        <div id="chartContainer7" style="height: 500px; width: 100%;"></div>
     </div>
     <!-- Footer -->
     <div id="foot_loc">
@@ -47,7 +52,13 @@
             document.getElementById('nav_analysis').classList.add('active');
         }
     </script>
-    <?php include 'analysis/total_citation.php'; ?>
+    <?php include 'components/variables.php'; ?>
+    <?php include 'analysis/analysis_1.php'; ?>
+    <?php include 'analysis/analysis_2.php'; ?>
+    <?php include 'analysis/analysis_4.php'; ?>
+    <?php include 'analysis/analysis_5.php'; ?>
+    <?php include 'analysis/analysis_6.php'; ?>
+    <?php include 'analysis/analysis_7.php'; ?>
 </body>
 
 </html>

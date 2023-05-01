@@ -1,20 +1,17 @@
 <?php
 #########PROFFESORS AND THEIR TOTAL NUMBER OF RESEARCH PAPERS - HORIZONTAL BAR GRAPH
 try {
-  $conn = new PDO("mysql:host=$servername;port=$port_no;dbname=$myDB", $username, $password);
+  $conn2 = new PDO("mysql:host=$servername;port=$port_no;dbname=$myDB", $username, $password);
   // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $conn2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
 ?>
 
-<html>
-
-<head>
-  <script>
+<script>
     window.onload = function() {
-      var chart = new CanvasJS.Chart("chartContainer", {
+      var chart2 = new CanvasJS.Chart("chartContainer2", {
         animationEnabled: true,
         theme: "dark2",
         title: {
@@ -29,7 +26,7 @@ try {
           // indexLabel: "{label} ({y})",
           dataPoints: [
             <?php
-            $stmt = $conn->query("SELECT pname ,COUNT(rid) FROM research.relation_pid_to_rid R ,research.prof_data P WHERE R.pid = P.pid  GROUP BY R.pid");
+            $stmt = $conn2->query("SELECT pname ,COUNT(rid) FROM research.relation_pid_to_rid R ,research.prof_data P WHERE R.pid = P.pid  GROUP BY R.pid");
             while ($row1 = $stmt->fetch(PDO::FETCH_ASSOC)) {
               echo "{label:'" . $row1['pname'] . "' , y:" . $row1['COUNT(rid)'] . "},";
             }
@@ -37,9 +34,6 @@ try {
           ]
         }]
       });
-      chart.render();
+      chart2.render();
     }
-  </script>
-</head>
-
-</html>
+</script>
