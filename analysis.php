@@ -10,9 +10,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <title>MFSDSAI</title>
+    <style>
+        .canvasjs-chart-credit {
+            color: white !important;
+        }
+
+        .canvasjs-data-label {
+            fill: white !important;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-secondary">
     <!-- Header -->
     <div id="header_loc">
     </div>
@@ -21,13 +30,13 @@
     </div>
     <div class="">
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-        <div id="chartContainer1" style="height: 500px; width: 100%;"></div>
-        <div id="chartContainer2" style="height: 500px; width: 100%;"></div>
-        <div id="chartContainer3" style="height: 500px; width: 100%;"></div>
-        <div id="chartContainer4" style="height: 500px; width: 100%;"></div>
-        <div id="chartContainer5" style="height: 500px; width: 100%;"></div>
-        <div id="chartContainer6" style="height: 500px; width: 100%;"></div>
-        <div id="chartContainer7" style="height: 500px; width: 100%;"></div>
+        <div class="m-2" id="chartContainer1" style="height: 500px; width: 98%;"></div>
+        <div class="m-2" id="chartContainer2" style="height: 500px; width: 98%;"></div>
+        <div class="m-2" id="chartContainer3" style="height: 500px; width: 98%;"></div>
+        <div class="m-2" id="chartContainer4" style="height: 500px; width: 98%;"></div>
+        <div class="m-2" id="chartContainer5" style="height: 500px; width: 98%;"></div>
+        <div class="m-2" id="chartContainer6" style="height: 500px; width: 98%;"></div>
+        <div class="m-2" id="chartContainer7" style="height: 500px; width: 98%;"></div>
     </div>
     <!-- Footer -->
     <div id="foot_loc">
@@ -59,6 +68,8 @@
     <?php include 'analysis/analysis_5.php'; ?>
     <?php include 'analysis/analysis_6.php'; ?>
     <?php include 'analysis/analysis_7.php'; ?>
+    <?php include 'analysis/windowLoad.php'; ?>
+
 </body>
 
 </html>

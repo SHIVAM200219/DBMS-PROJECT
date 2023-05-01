@@ -11,7 +11,6 @@ try {
 ?>
 
 <?php include 'totaldomain.php'; ?>
-
 <?php
 $paper_count = array();
 $paper_domain = array();
@@ -31,5 +30,5 @@ for ($i = 1; $i < 38; $i++) {
 $max_count = max($paper_count);
 $max_index = array_search($max_count, $paper_count);
 
-echo "Most popular domain is " . $paper_domain[$max_index] . "<br>";
+// echo "Most popular domain is " . $paper_domain[$max_index] . "<br>";
 ?>
