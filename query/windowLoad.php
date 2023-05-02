@@ -1,72 +1,130 @@
-<!-- <script>
+<script>
     window.onload = function() {
-        var chart1 = new CanvasJS.Chart("chartContainer1", {
-            theme: "dark2", // "light1", "light2", "dark1"
-            animationEnabled: true,
-            title: {
-                text: "PAPER COUNT IN EACH DOMAIN"
-            },
-            axisX: {
-                margin: 100,
-                interval: 1,
-                labelPlacement: "outside",
-                labelFontSize: 12,
-                tickPlacement: "inside"
-            },
-            axisY2: {
-                title: "no.of papers",
-                titleFontSize: 14,
-                includeZero: true,
-            },
-            data: [{
-                type: "bar",
-                axisYType: "secondary",
+        document.getElementById('query_plot').classList.remove("d-none");
+        document.getElementById('query_plot').classList.add("d-flex");
+        var citations = <?php
+                        echo '[';
+                        for ($i = 0; $i < sizeof($citations); $i++) {
 
-                dataPoints: [
-                    <?php
-                    for ($i = 1; $i < 38; $i++) {
-                        $stmt = $conn->query("SELECT dname ,SUM(SUBSTRING(rdomain_label,$i,1)) AS paper_count FROM research.research_paper_domain_label R ,research.domain_data P , research.research_data RD WHERE P.did = $i AND R.rid=RD.rid AND RD.ryear = $year");
-                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                            if ($row['paper_count'] != '0') {
-                                echo "{y:" . $row['paper_count'] . " , label:'" . $row['dname'] . "'},";
+                            echo $citations[$i];
+                            if ($i != sizeof($citations) - 1) {
+                                echo ',';
                             }
                         }
+                        echo ']';
+                        ?>;
+        var pname = <?php
+                    echo '[';
+                    for ($i = 0; $i < sizeof($pname); $i++) {
+                        echo '`', $pname[$i], '`';
+                        if ($i != sizeof($pname) - 1) {
+                            echo ',';
+                        }
                     }
+                    echo ']';
+                    ?>;
 
+        const start = <?php echo $start_year; ?>;
+        const end = <?php echo $end_year; ?>;
+        let Data = [];
+        for (let index = 0; index < <?php echo sizeof($pname); ?>; index++) {
+            let datapoints11 = [];
+            for (let year = 0; year <= end - start; year++) {
+                datapoints11.push({
+                    label: (year + start).toString(),
+                    y: citations[4 * index + year]
+                });
+            }
+            let obj = {
+                type: "spline",
+                visible: true,
+                showInLegend: true,
+                yValueFormatString: "##",
+                name: pname[index],
+                dataPoints: datapoints11
+            }
+            Data.push(obj);
+        }
+
+        var chart11 = new CanvasJS.Chart("chartContainer11", {
+            theme: "dark2",
+            animationEnabled: true,
+            title: {
+                text: "Citations count for last 3 years."
+            },
+            axisY: {
+                title: "Number of Citations",
+                suffix: ""
+            },
+            toolTip: {
+                shared: "true"
+            },
+            legend: {
+                cursor: "pointer",
+                itemclick: toggleDataSeries
+            },
+            data: Data
+        });
+        chart11.render();
+
+        function toggleDataSeries(e) {
+            if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                e.dataSeries.visible = false;
+            } else {
+                e.dataSeries.visible = true;
+            }
+            chart11.render();
+        }
+
+
+
+        var chart12 = new CanvasJS.Chart("chartContainer12", {
+            animationEnabled: true,
+            theme: "dark2", // "light1", "light2", "dark1", "dark2"
+            title: {
+                text: "Co-authors worked with <?php echo $Prof_title; ?> "
+            },
+            axisY: {
+                title: "Number of times they worked together",
+            },
+            axisX: {
+                title: "Co-authors"
+            },
+            data: [{
+                type: "doughnut",
+                indexLabel: "{label} ({y})",
+                yValueFormatString: "###\"\"",
+                dataPoints: [
+                    <?php
+                    for ($i = 0; $i < sizeof($co_auth_name); $i++) {
+                        echo "{label:'" . $co_auth_name[$i] . "' , y:" . $co_auth_count[$i] . "},";
+                    }
                     ?>
-                ]
 
+                ]
             }]
         });
-        chart1.render();
+        chart12.render();
 
-        // var chart2 = new CanvasJS.Chart("chartContainer2", {
-        //     animationEnabled: true,
-        //     theme: "dark2", // "light1", "light2", "dark1", "dark2"
-        //     title: {
-        //         text: "PAPERS PER YEAR"
-        //     },
-        //     axisY: {
-        //         title: "no.of papers",
-        //     },
-        //     axisX: {
-        //         title: "Years"
-        //     },
-        //     data: [{
-        //         type: "column",
-        //         dataPoints: [
-        //             <?php
-        //             $stmt = $conn->query("SELECT ryear ,SUM(SUBSTRING(rdomain_label,$did,1)) AS paper_count FROM research.research_paper_domain_label R ,research.domain_data P , research.research_data RD WHERE P.did = $did AND R.rid=RD.rid GROUP BY ryear");
-        //             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        //                 echo "{y:" . $row['paper_count'] . " , label:'" . $row['ryear'] . "'},";
-        //             }
-
-        //             ?>
-
-        //         ]
-        //     }]
-        // });
-        // chart2.render();
+        var chart13 = new CanvasJS.Chart("chartContainer13", {
+            animationEnabled: true,
+            theme: "dark2",
+            title: {
+                text: "Citation Count Per Year for Professor <?php echo $name; ?>"
+            },
+            subtitles: [{
+                text: ""
+            }],
+            axisY: {
+                title: "Citation Count"
+            },
+            data: [{
+                type: "column",
+                yValueFormatString: "#,##0.## citations",
+                dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+            }]
+        });
+        chart13.render();
 
     }
-</script> -->
+</script>

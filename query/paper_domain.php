@@ -5,7 +5,7 @@
             animationEnabled: true,
             theme: "dark2", // "light1", "light2", "dark1", "dark2"
             title: {
-                text: "PAPERS PER YEAR"
+                text: "Papers per Year"
             },
             axisY: {
                 title: "no.of papers",
@@ -32,5 +32,5 @@
     }
 </script>
 <div class="d-flex justify-content-around mb-3">
-    <div id="chartContainer" style="height: 370px; width: 70%;"></div>
+    <div class="" id="chartContainer" style="height: 370px; width: 70%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

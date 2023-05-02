@@ -199,7 +199,10 @@
             }]
         });
         chart7.render();
-        document.getElementById('nav_analysis').classList.add('active');
+        // document.getElementById('nav_analysis').classList.add('active');
 
+
+        
+        
     }
 </script>

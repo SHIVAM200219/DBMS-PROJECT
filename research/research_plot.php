@@ -20,7 +20,7 @@
                 data: [{
                     type: "<?php echo $_POST['plot'] ?>",
                     yValueFormatString: "###\"\"",
-                    // indexLabel: "{label} ({y})",
+                    indexLabel: "{label} ({y})",
                     dataPoints: dataPoints[index]
                 }]
             });

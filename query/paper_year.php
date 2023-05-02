@@ -5,7 +5,7 @@
             theme: "dark2", // "light1", "light2", "dark1"
             animationEnabled: true,
             title: {
-                text: "PAPER COUNT IN EACH DOMAIN"
+                text: "Paper Count in each Domain"
             },
             axisX: {
                 margin: 30,
@@ -44,7 +44,7 @@
 
     }
 </script>
-<div class="d-flex justify-content-around mb-3">
+<div class="d-flex justify-content-around mb-3 flex-2">
     <div id="chartContainer" style="height: 500px; width: 70%;"></div>
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

@@ -25,8 +25,16 @@
 
     <section>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <?php include 'query/form.php'; ?>
         <div class="">
+            <div id="query_plot" class="d-none justify-content-center">
+                <div id="chartContainer11" style="height: 300px; width: 50%;"></div>
+                <div id="chartContainer12" style="height: 300px; width: 50%;"></div>
+                <div id="chartContainer13" style="height: 300px; width: 50%;"></div>
+                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+            </div>
             <?php include 'components/variables.php'; ?>
+            <?php include 'query/grp1.php'; ?>
             <?php include 'query/grp2.php'; ?>
         </div>
     </section>
