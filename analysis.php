@@ -30,6 +30,7 @@
     </div>
     <div class="">
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
         <div class="m-2" id="chartContainer1" style="height: 500px; width: 98%;"></div>
         <div class="m-2" id="chartContainer2" style="height: 500px; width: 98%;"></div>
         <div class="m-2" id="chartContainer3" style="height: 500px; width: 98%;"></div>
@@ -69,7 +70,8 @@
     <?php include 'analysis/analysis_6.php'; ?>
     <?php include 'analysis/analysis_7.php'; ?>
     <?php include 'analysis/windowLoad.php'; ?>
-
+    <?php include 'analysis/correl_prof.php'; ?>
+    
 </body>
 
 </html>

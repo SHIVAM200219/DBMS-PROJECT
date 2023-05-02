@@ -1,5 +1,6 @@
 <script>
     window.onload = function() {
+        
         var chart1 = new CanvasJS.Chart("chartContainer1", {
             theme: "dark2", // "light1", "light2", "dark1"
             colorSet: "colorSet2",
