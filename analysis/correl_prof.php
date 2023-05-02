@@ -1,5 +1,5 @@
 <?php include 'chord_sql.php'; ?>
-
+<script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
 <style>
   html,
   body,

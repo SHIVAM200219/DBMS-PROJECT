@@ -114,11 +114,6 @@
     <script>
         $("#foot_loc").load("components/footer.html");
     </script>
-    <script>
-        window.onload = function() {
-            document.getElementById('nav_home').classList.add('active');
-        }
-    </script>
     <?php include 'home/citationPerYear.php'; ?>
 </body>
 

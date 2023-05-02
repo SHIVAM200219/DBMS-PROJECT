@@ -1,6 +1,5 @@
 <script>
     window.onload = function() {
-        
         var chart1 = new CanvasJS.Chart("chartContainer1", {
             theme: "dark2", // "light1", "light2", "dark1"
             colorSet: "colorSet2",
@@ -200,6 +199,7 @@
             }]
         });
         chart7.render();
+        document.getElementById('nav_analysis').classList.add('active');
 
     }
 </script>
