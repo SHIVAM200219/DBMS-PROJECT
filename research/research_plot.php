@@ -7,12 +7,15 @@
             document.getElementById("chart").classList.add('d-flex');
             var chart = new CanvasJS.Chart(`chartContainer${index}`, {
                 animationEnabled: true,
-                theme: "dark2",
+                // theme: "dark2",
+                backgroundColor: "black",
                 title: {
-                    text: `No. of Research Papers per ${title[index]} `
+                    text: `No. of Research Papers per ${title[index]} `,
+                    fontColor:"white"
                 },
                 subtitles: [{
-                    text: `<?php echo $heading ?>`
+                    text: `<?php echo $heading ?>`,
+                    fontColor:"white"
                 }],
                 axisX: {
                     interval: 1
@@ -21,6 +24,7 @@
                     type: "<?php echo $_POST['plot'] ?>",
                     yValueFormatString: "###\"\"",
                     indexLabel: "{label} ({y})",
+                    indexLabelFontColor: "white",
                     dataPoints: dataPoints[index]
                 }]
             });

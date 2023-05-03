@@ -154,7 +154,7 @@
             // theme: "dark1",
             backgroundColor: "black",
             title: {
-                text: "ALL DOMAIN AREAS",
+                text: "Distribution of Domains of Research Papers",
                 fontColor: "white"
             },
             subtitles: [{
@@ -199,10 +199,5 @@
             }]
         });
         chart7.render();
-        // document.getElementById('nav_analysis').classList.add('active');
-
-
-        
-        
     }
 </script>

@@ -27,6 +27,7 @@
             }
 
             // Query1
+            echo "<div class=\"bg-dark m-3 p-3\">";
             for ($i = 0; $i < sizeof($pid_for_name); $i++) {
 
                 $sql = "SELECT p.pname AS pname, r.rtitle AS rtitle, r.rcitations AS citation_count 
@@ -38,7 +39,7 @@
                 LIMIT 1";
                 $result = $conn->query($sql);
                 $row = $result->fetchAll(PDO::FETCH_ASSOC);
-                echo $row[0]['pname'] . " has the most citations count ", $row[0]['citation_count'] . " in research paper - " . $row[0]['rtitle'] . "<br>";
+                echo "<h5>". $row[0]['pname'] . " has the most citations count ", $row[0]['citation_count'] . " in research paper - " . $row[0]['rtitle'] . "</h5><br>";
             }
             $conn = null;
             //Query2  
@@ -69,7 +70,7 @@
 
 
             for ($k = 0; $k < $len_p; $k++) {
-                echo $domain_act[$k] . " is the most active domain of " . $pname_for_name[$k] . "<br>";
+                echo "<h5>". $domain_act[$k] . " is the most active domain of " . $pname_for_name[$k] . "</h5><br>";
             }
 
 
@@ -154,7 +155,7 @@
                 WHERE p.pid=$pid_for_name[$i]  AND r.rpublisher != 'N/G'";
                 $result = $conn->query($sql);
                 $row = $result->fetchAll(PDO::FETCH_ASSOC);
-                echo "Publishers of " . $Prof_title . " :- " . $row[0]['publishers'] . "<br>";
+                echo "<h5>". "Publishers of " . $Prof_title . " :- " . $row[0]['publishers'] . "</h5><br>";
             }
             $conn = null;
 
@@ -196,12 +197,12 @@
                 $key = min($dates);
                 $found = array_keys($dates, $key);
                 $len = count($found);
-                echo "Domains Of first Publication of " . $pname_for_name[$j] . " are :  ";
+                echo "<h5>". "Domains Of first Publication of " . $pname_for_name[$j] . " are :  ";
                 for ($i = 0; $i < $len; $i++) {
                     $index = $found[$i];
                     echo $dnames[$index] . " ";
                 }
-                echo "<br>";
+                echo "</h5> <br>";
 
                 $dnames = array();
                 $dates = array();
@@ -220,13 +221,15 @@
                 $key = max($dates);
                 $found = array_keys($dates, $key);
                 $len = count($found);
-                echo "Domains Of latest Publication of " . $pname_for_name[$j] . " are : ";
+                echo "<h5>". "Domains Of latest Publication of " . $pname_for_name[$j] . " are : ";
                 for ($i = 0; $i < $len; $i++) {
                     $index = $found[$i];
                     echo $dnames[$index];
                     echo "<br>";
                 }
             }
+            echo "</h5>";
+            echo "</div>";
             include 'windowLoad.php';
             ?>
 </div>

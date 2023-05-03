@@ -50,7 +50,6 @@
 
     ]
   };
-
   zingchart.render({
     id: 'chartContainer3',
     data: myConfig,

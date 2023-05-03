@@ -27,10 +27,10 @@
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         <?php include 'query/form.php'; ?>
         <div class="">
-            <div id="query_plot" class="d-none justify-content-center">
-                <div id="chartContainer11" style="height: 300px; width: 50%;"></div>
-                <div id="chartContainer12" style="height: 300px; width: 50%;"></div>
-                <div id="chartContainer13" style="height: 300px; width: 50%;"></div>
+            <div id="query_plot" class="d-none justify-content-around flex-wrap">
+                <div id="chartContainer11" class="m-3" style="height: 300px; width: 45%;"></div>
+                <div id="chartContainer12" class="m-3" style="height: 300px; width: 45%;"></div>
+                <div id="chartContainer13" class="m-3" style="height: 300px; width: 45%;"></div>
                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
             </div>
             <?php include 'components/variables.php'; ?>
@@ -39,9 +39,9 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <div id="foot_loc">
-    </div>
+    <!-- Footer
+    <div id="foot_loc" style="position:fixed; bottom: 0px; right:0px; left:0px;">
+    </div> -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -58,11 +58,11 @@
     <script>
         $("#foot_loc").load("components/footer.html");
     </script>
-    <!-- <script>
+    <script>
         window.onload = function() {
-            // document.getElementById('nav_query').classList.add('active');
+            document.getElementById('nav_query').classList.add('active');
         }
-    </script> -->
+    </script>
 </body>
 
 </html>

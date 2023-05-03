@@ -1,5 +1,5 @@
-<form class="d-flex justify-content-around text-white bg-dark" method="post">
-            <div>
+<form class="d-flex justify-content-around text-white bg-dark m-2" method="post">
+            <div class="bg-dark p-3" style="flex:1;">
                 <h3>Search for Faculty</h3>
                 <label for="prof">Professor Name:</label>
                 <input type="text" name="prof"><br>
@@ -8,7 +8,7 @@
                     <button type="submit" value="Submit" name="submit" class="btn btn-success m-2">Submit</button>
                 </div>
             </div>
-            <div>
+            <div class="bg-dark p-3" style="flex:1;">
                 <h3>Search for a Year</h3>
                 <label for="year">Enter Year:</label>
                 <input type="number" name="year" min="2017"><br>
@@ -17,7 +17,7 @@
                     <button type="submit" value="Submit" name="submit" class="btn btn-success m-2">Submit</button>
                 </div>
             </div>
-            <div>
+            <div class="bg-dark p-3" style="flex:1;">
                 <h3>Search for a Domain</h3>
                 <label for="d">Choose a domain:</label>
                 <select name="domain" id="D">

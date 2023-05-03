@@ -1,0 +1,1 @@
+<?php include 'analysis/correl_prof.php'; ?>

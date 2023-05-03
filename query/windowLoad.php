@@ -1,5 +1,6 @@
 <script>
     window.onload = function() {
+        
         document.getElementById('query_plot').classList.remove("d-none");
         document.getElementById('query_plot').classList.add("d-flex");
         var citations = <?php
@@ -125,6 +126,6 @@
             }]
         });
         chart13.render();
-
+        
     }
 </script>
