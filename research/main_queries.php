@@ -86,7 +86,7 @@ try {
         } elseif (!empty($ans_domain)) {
             $interesection = $ans_domain;
         }
-       
+       $interesection = array_unique($interesection);
 
         if (!empty($interesection) && strlen($_POST['prof']) > 0) {
             $p = $conn->query("SELECT * FROM research.prof_data");
@@ -127,6 +127,7 @@ try {
                 }
             }
         }
+        print_r($ans);
         $to_count_did = array();
         $result = array(array('Professor', 'Profwebsite', 'Title', 'Paperlink', 'Citations', 'Authors', 'Publication Date', 'Publisher', 'Conference/Journal', 'Domain'));
         for ($i = 0; $i < sizeof($ans); $i++) {
@@ -216,7 +217,6 @@ try {
                 array_push($dataPoints_domain, $temp);
             }
         }
-
         include 'print_table.php';
         print_table($result);
     }

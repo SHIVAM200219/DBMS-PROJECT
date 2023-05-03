@@ -28,9 +28,9 @@
         <?php include 'query/form.php'; ?>
         <div class="">
             <div id="query_plot" class="d-none justify-content-around flex-wrap">
-                <div id="chartContainer11" class="m-3" style="height: 300px; width: 45%;"></div>
-                <div id="chartContainer12" class="m-3" style="height: 300px; width: 45%;"></div>
-                <div id="chartContainer13" class="m-3" style="height: 300px; width: 45%;"></div>
+                <div id="chartContainer11" class="m-3" style="height: 300px; width: 90%;"></div>
+                <div id="chartContainer12" class="m-3" style="height: 300px; width: 90%;"></div>
+                <div id="chartContainer13" class="m-3" style="height: 300px; width: 90%;"></div>
                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
             </div>
             <?php include 'components/variables.php'; ?>

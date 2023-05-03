@@ -1,4 +1,4 @@
-<form class="d-flex justify-content-around text-white bg-dark m-2" method="post">
+<form class="d-flex justify-content-around text-white bg-dark m-2 flex-wrap" method="post">
             <div class="bg-dark p-3" style="flex:1;">
                 <h3>Search for Faculty</h3>
                 <label for="prof">Professor Name:</label>

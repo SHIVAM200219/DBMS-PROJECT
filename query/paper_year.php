@@ -44,7 +44,7 @@
 
     }
 </script>
-<div class="d-flex justify-content-around mb-3 flex-2">
-    <div id="chartContainer" style="height: 500px; width: 70%;"></div>
+<div class="d-flex justify-content-around mb-3 flex-2 flex-wrap">
+    <div id="chartContainer" style="height: 500px; width: 90%;"></div>
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

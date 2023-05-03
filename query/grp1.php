@@ -1,4 +1,4 @@
-<div class="text-light text-center">
+<div class="text-light text-center" style="width:90%; margin:auto;">
 
     <?php
     try {
@@ -27,7 +27,7 @@
             }
 
             // Query1
-            echo "<div class=\"bg-dark m-3 p-3\">";
+            echo "<div class=\"bg-dark p-3\">";
             for ($i = 0; $i < sizeof($pid_for_name); $i++) {
 
                 $sql = "SELECT p.pname AS pname, r.rtitle AS rtitle, r.rcitations AS citation_count 
