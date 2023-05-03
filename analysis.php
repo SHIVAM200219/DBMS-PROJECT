@@ -54,7 +54,6 @@
     </script>
     <script>
         $("#nav_loc").load("components/navbar.html");
-        document.getElementById('nav_analysis').classList.add('active');
     </script>
     <script>
         $("#foot_loc").load("components/footer.html");

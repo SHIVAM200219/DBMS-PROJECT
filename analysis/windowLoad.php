@@ -198,6 +198,7 @@
                 dataPoints: <?php echo json_encode($dataPoints7, JSON_NUMERIC_CHECK); ?>
             }]
         });
-        chart7.render();
+        chart7.render();       
+        document.getElementById('nav_analysis').classList.add('active');
     }
 </script>

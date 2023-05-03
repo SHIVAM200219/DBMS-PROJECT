@@ -126,6 +126,6 @@
             }]
         });
         chart13.render();
-        
+        document.getElementById('nav_query').classList.add('active');   
     }
 </script>

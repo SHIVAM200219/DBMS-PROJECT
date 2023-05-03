@@ -36,6 +36,7 @@
             <?php include 'components/variables.php'; ?>
             <?php include 'query/grp1.php'; ?>
             <?php include 'query/grp2.php'; ?>
+            
         </div>
     </section>
 
@@ -58,11 +59,11 @@
     <script>
         $("#foot_loc").load("components/footer.html");
     </script>
-    <script>
+    <!-- <script>
         window.onload = function() {
             document.getElementById('nav_query').classList.add('active');
         }
-    </script>
+    </script> -->
 </body>
 
 </html>
