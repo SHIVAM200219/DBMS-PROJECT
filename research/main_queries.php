@@ -127,7 +127,7 @@ try {
                 }
             }
         }
-        print_r($ans);
+        // print_r($ans);
         $to_count_did = array();
         $result = array(array('Professor', 'Profwebsite', 'Title', 'Paperlink', 'Citations', 'Authors', 'Publication Date', 'Publisher', 'Conference/Journal', 'Domain'));
         for ($i = 0; $i < sizeof($ans); $i++) {

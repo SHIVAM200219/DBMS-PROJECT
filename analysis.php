@@ -33,7 +33,7 @@
         <script nonce="undefined" src="https://cdn.zingchart.com/zingchart.min.js"></script>
         <div class="m-2" id="chartContainer1" style="height: 500px; width: 98%;"></div>
         <div class="m-2" id="chartContainer2" style="height: 500px; width: 98%;"></div>
-        <div class="m-2" id="chartContainer3" style="height: 500px; width: 98%;"></div>
+        <!-- <div class="m-2" id="chartContainer3" style="height: 500px; width: 98%;"></div> -->
         <div class="m-2" id="chartContainer4" style="height: 500px; width: 98%;"></div>
         <div class="m-2" id="chartContainer5" style="height: 500px; width: 98%;"></div>
         <div class="m-2" id="chartContainer6" style="height: 500px; width: 98%;"></div>
