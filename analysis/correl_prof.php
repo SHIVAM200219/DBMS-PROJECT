@@ -16,7 +16,7 @@
     "options": {
       "radius": "100%",
       anglePadding: 3,
-      hoverEffect: 2,
+      hoverEffect: 1,
 
       style: {
         label: {
