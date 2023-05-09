@@ -23,4 +23,14 @@ Mehta Family School of DS&AI Research Portal.
  
  
  <img width="677" alt="image" src="https://user-images.githubusercontent.com/95133586/235427654-0bdff8e1-e593-4a4c-a733-6e9e999ef07d.png">
+ 
+ 
+ 
+ <h2> MySQL user specification to access the website - </h2>
+ 
+$servername = "localhost";
+$port_no = 3306;
+$username = "dbms0";
+$password = "project";
+$myDB = "research";
 
