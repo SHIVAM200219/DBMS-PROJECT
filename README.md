@@ -1,8 +1,8 @@
-Mehta Family School of DS&AI Research Portal.
+<h1> Mehta Family School of DS&AI Research Portal. </h1>
 
  A portal that allows one to explore the research activities of the faculties at MFSDS&AI, IIT Guwahati.
  
- Dataset:
+ <h3> Dataset: </h3>
  
  1."prof_data.csv" : Contains faculties data.
  
@@ -26,11 +26,11 @@ Mehta Family School of DS&AI Research Portal.
  
  
  
- <h2> MySQL user specification to access the website - </h2>
+ <h3> MySQL user specification to access the website - </h3>
  
-$servername = "localhost";
-$port_no = 3306;
-$username = "dbms0";
-$password = "project";
+$servername = "localhost"; <br>
+$port_no = 3306; <br>
+$username = "dbms0";<br>
+$password = "project";<br>
 $myDB = "research";
 
