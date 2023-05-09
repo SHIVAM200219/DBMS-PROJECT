@@ -18,7 +18,7 @@
  
  7."research_paper_domain_label.csv": Mapping of each research papers id to its corresponding research ares code (domain).
  
-<b> <h4> ER Model used: </h4> </b>
+<b> <h3> ER Model used: </h3> </b>
  
  
  
