@@ -18,7 +18,7 @@
  
  7."research_paper_domain_label.csv": Mapping of each research papers id to its corresponding research ares code (domain).
  
- ER Model used:
+<b> <h4> ER Model used: </h4> </b>
  
  
  
@@ -30,7 +30,7 @@
  
 $servername = "localhost"; <br>
 $port_no = 3306; <br>
-$username = "dbms0";<br>
+$username = "dbms";<br>
 $password = "project";<br>
 $myDB = "research";
 
