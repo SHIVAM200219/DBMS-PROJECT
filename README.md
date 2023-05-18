@@ -49,7 +49,7 @@ $myDB = "research";
 
 3. Research :- Contains Research Paper related informations <br>
             (a) One can search for any of the following fields : <br>
-                <li>(i) Professor Name (ii) Research Domain (iii) Year Published (iv) Research Paper</li> <br>
+                (i) Professor Name (ii) Research Domain (iii) Year Published (iv) Research Paper <br>
                 *You can apply multiple fields at a time to get intersection of all the individual results.* <br>
             (b) One can select type of plotting for data visualization of No. of Research Papers per Professor & No. 
                 of research Papers per Domain. <br>
