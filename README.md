@@ -37,48 +37,48 @@ $myDB = "research";
 <h3>Pagewise Specificatons: </h3> <br>
 
 1. Home :-  Overview <br>
-            (a) Descriptions - Why Data Science ? And How IITG & MFSDSAI meets the requirements.
-            (b) A spline plot to show Citations Per Year Counts for our Core Faculty.
+            (a) Descriptions - Why Data Science ? And How IITG & MFSDSAI meets the requirements. <br>
+            (b) A spline plot to show Citations Per Year Counts for our Core Faculty. <br>
             (c) How Data Science and Artificial Intelligence is gaining more popularity as compared to other domains 
-                of Engineering.
+                of Engineering. <br>
 
 2. Professors :- Contains Informations of all Professors <br>
-            (a) One can visit Faculty Portfolio Website by clicking on respective name.
-            (b) One can send email, make Phone Call by clicking respective links.
-            (c) One can know the research areas of respective Professor.
+            (a) One can visit Faculty Portfolio Website by clicking on respective name. <br>
+            (b) One can send email, make Phone Call by clicking respective links. <br>
+            (c) One can know the research areas of respective Professor. <br>
 
 3. Research :- Contains Research Paper related informations <br>
-            (a) One can search for any of the following fields :
-                (i) Professor Name (ii) Research Domain (iii) Year Published (iv) Research Paper
-                *You can apply multiple fields at a time to get intersection of all the individual results.
+            (a) One can search for any of the following fields : <br>
+                (i) Professor Name (ii) Research Domain (iii) Year Published (iv) Research Paper <br>
+                *You can apply multiple fields at a time to get intersection of all the individual results. <br>
             (b) One can select type of plotting for data visualization of No. of Research Papers per Professor & No. 
-                of research Papers per Domain.
+                of research Papers per Domain. <br>
             (c) A checkbox named Only MFSDSAI, can be ticked to get only those papers which were published under    
-                MFSDSAI.
-            (d) You will get a Tabular results as well as a plotting. Tabular results contain following fields :
+                MFSDSAI. <br>
+            (d) You will get a Tabular results as well as a plotting. Tabular results contain following fields : <br>
                 (i) Professor Name (ii) Title of Research Paper (iii) Citation Counts (iv) Authors (v) Publication 
-                    Date (vi) Publisher (vii) Conference/Journal (viii) Domain
+                    Date (vi) Publisher (vii) Conference/Journal (viii) Domain <br>
             (e) In Tabular results, Professor Name contain a link to Professor Portfolio Website & Title of Research 
-                Paper contain a link to respective Research Paper.
+                Paper contain a link to respective Research Paper. <br>
 
 4. Query :- Contains Research Informations related to Faculty, Year and Domain <br>
-            (a) One can search for a faculty, will get following results:
-                (i) A bar plot of Citation Count per Year.
-                (ii) A doughnut Plot of all Co-author worked with that faculty.
+            (a) One can search for a faculty, will get following results: <br>
+                (i) A bar plot of Citation Count per Year. <br>
+                (ii) A doughnut Plot of all Co-author worked with that faculty. <br>
                 (iii) Most Citated Paper with Citation Counts, Most active domain, Publishers, Domain of first and 
-                    last papers of that faculty.
-            (b)  One can search for a year, will get following results:
-                (i) A bar plot of Paper Count in each domain.
-                (ii) Most explored domain in that year and Publishers of that year.
-            (c) One can search for a domain, will get following results:
-                (i) A bar plot of Paper Count in each year.
-                (ii) Most explored domain in that domain and Publishers of that domain.
+                    last papers of that faculty. <br>
+            (b)  One can search for a year, will get following results: <br>
+                (i) A bar plot of Paper Count in each domain. <br>
+                (ii) Most explored domain in that year and Publishers of that year. <br>
+            (c) One can search for a domain, will get following results:<br>
+                (i) A bar plot of Paper Count in each year. <br>
+                (ii) Most explored domain in that domain and Publishers of that domain. <br>
 
 5. Analysis :- Contains few analysis of Mehta Family School of Data Science and Artificial Intelligence <br>
-            (a) A bar plot of paper counts in different Research Areas. 
-            (b) A bar plot of paper counts of each Professors. 
-            (c) A bar plot of Citation Counts of each professors (lifetime and since 2018). 
-            (d) A pie plot of Distribution of Domains of Research Papers. 
-            (e) A bar plot of paper counts of frequent Publishers. 
+            (a) A bar plot of paper counts in different Research Areas.  <br>
+            (b) A bar plot of paper counts of each Professors. <br>
+            (c) A bar plot of Citation Counts of each professors (lifetime and since 2018). <br>
+            (d) A pie plot of Distribution of Domains of Research Papers. <br>
+            (e) A bar plot of paper counts of frequent Publishers. <br>
 
 
