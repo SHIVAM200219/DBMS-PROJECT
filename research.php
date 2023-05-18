@@ -28,9 +28,9 @@
             <h3 class="text-center text-light">Search Research Paper</h3>
             <form class="p-2 d-flex flex-column align-items-center" action="" method="post">
                 <br>
-                <p class="p-1 text-center text-light">Professor Name</p> <input style="width: 60%;" class="text-center" type="text" name="prof" size="50" placeholder="Enter Professor Name">
+                <p class="p-1 text-center text-light"> Professor Name </p> <input style="width: 60%;" class="text-center" type="text" name="prof" size="50" placeholder="Enter Professor Name">
                 <br>
-                <p class="p-1 text-center text-light"> Domain Name </p> <input style="width: 60%;" class="text-center" type="text" name="domain" size="50" placeholder="Enter Domain Name">
+                <p class="p-1 text-center text-light"> Research Domain </p> <input style="width: 60%;" class="text-center" type="text" name="domain" size="50" placeholder="Enter Domain Name">
                 <br>
                 <p class="p-1 text-center text-light"> Year Published </p> <input style="width: 60%;" class="text-center" type="text" name="year" size="50" placeholder="Enter Year">
                 <br>
