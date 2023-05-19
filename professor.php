@@ -24,8 +24,8 @@
         <div class="content bg-dark">
                 <div id="head" class="bg-dark">
                         <h3 class="text-center text-warning">Head</h3>
-                        <div class="bg-secondary d-flex justify-content-around p-4">
-                                <div>
+                        <div class="bg-secondary d-flex flex-wrap justify-content-around p-4">
+                                <div class="m-2">
                                         <img class="rounded" src="./img/ratnajit_sir.jpeg" height="330px" class="card-img-top" style="width: 20rem;" alt="...">
                                 </div>
 
