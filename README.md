@@ -35,19 +35,21 @@ $password = "project";<br>
 $myDB = "research";
 
 <h3>Pagewise Specificatons: </h3> <br>
-
-1. Home :-  Overview <br>
+<h4>
+1. <b> Home </b> :-  </h4>
+   <h5> Preview </h5> <br> <img width="500" height= '500' alt="image" src="https://github.com/SHIVAM200219/DBMS-PROJECT/assets/95133586/3ebb7201-78c4-46a4-acf8-2dc4aa24bd17"><br>
+    Overview <br>
             (a) Descriptions - Why Data Science ? And How IITG & MFSDSAI meets the requirements. <br>
             (b) A spline plot to show Citations Per Year Counts for our Core Faculty. <br>
             (c) How Data Science and Artificial Intelligence is gaining more popularity as compared to other domains 
                 of Engineering. <br>
 
-2. Professors :- Contains Informations of all Professors <br>
+2. <b> Professors </b> :- Contains Informations of all Professors <br>
             (a) One can visit Faculty Portfolio Website by clicking on respective name. <br>
             (b) One can send email, make Phone Call by clicking respective links. <br>
             (c) One can know the research areas of respective Professor. <br>
 
-3. Research :- Contains Research Paper related informations <br>
+3. <b> Research </b> :- Contains Research Paper related informations <br>
             (a) One can search for any of the following fields :
                 (i) Professor Name (ii) Research Domain (iii) Year Published (iv) Research Paper <br>
                 *You can apply multiple fields at a time to get intersection of all the individual results.* <br>
@@ -61,7 +63,7 @@ $myDB = "research";
             (e) In Tabular results, Professor Name contain a link to Professor Portfolio Website & Title of Research 
                 Paper contain a link to respective Research Paper. <br>
 
-4. Query :- Contains Research Informations related to Faculty, Year and Domain <br>
+4. <b> Query </b> :- Contains Research Informations related to Faculty, Year and Domain <br>
             (a) One can search for a faculty, will get following results: <br>
                 (i) A bar plot of Citation Count per Year. <br>
                 (ii) A doughnut Plot of all Co-author worked with that faculty. <br>
