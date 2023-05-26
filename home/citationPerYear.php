@@ -70,6 +70,5 @@
                 }
                 chart.render();
             }
-            document.getElementById('nav_home').classList.add('active');
         }
     </script>

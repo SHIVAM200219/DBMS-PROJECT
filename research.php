@@ -16,21 +16,23 @@
 
     <!-- Header -->
     <div id="header_loc">
+        <?php include 'components/header.php'; ?>
     </div>
 
     <!-- Navbar -->
     <div id="nav_loc" class="m-0">
+        <?php include 'components/navbar.php'; ?>
     </div>
 
     <!-- Form-->
     <section class="bg-secondary p-3">
         <div class="bg-dark p-3 mx-auto" style="border-radius:50px">
-            <h3 class="text-center text-light">Search Research Paper</h3>
+            <h3 id="j" class="text-center text-light">Search Research Paper</h3>
             <form class="p-2 d-flex flex-column align-items-center" action="" method="post">
                 <br>
-                <p class="p-1 text-center text-light"> Professor Name </p> <input style="width: 60%;" class="text-center" type="text" name="prof" size="50" placeholder="Enter Professor Name">
+                <p class="p-1 text-center text-light">Professor Name</p> <input style="width: 60%;" class="text-center" type="text" name="prof" size="50" placeholder="Enter Professor Name">
                 <br>
-                <p class="p-1 text-center text-light"> Research Domain </p> <input style="width: 60%;" class="text-center" type="text" name="domain" size="50" placeholder="Enter Domain Name">
+                <p class="p-1 text-center text-light"> Research Domain</p> <input style="width: 60%;" class="text-center" type="text" name="domain" size="50" placeholder="Enter Domain Name">
                 <br>
                 <p class="p-1 text-center text-light"> Year Published </p> <input style="width: 60%;" class="text-center" type="text" name="year" size="50" placeholder="Enter Year">
                 <br>
@@ -48,8 +50,8 @@
                     <br>
                 </p>
                 <p>
-                <input type="checkbox" id="is_mfsdsai" name="is_mfsdsai" value="yes">
-                <label class="text-white" for="is_mfsdsai">Only MFSDSAI</label><br>
+                    <input type="checkbox" id="is_mfsdsai" name="is_mfsdsai" value="yes">
+                    <label class="text-white" for="is_mfsdsai">Only MFSDSAI</label><br>
                 </p>
                 <div class="d-flex justi fy-content-center">
                     <button type="reset" value="Reset" name="reset" class="btn btn-danger m-2">Reset</button>
@@ -69,30 +71,16 @@
     </section>
     <!-- Footer -->
     <div id="foot_loc">
+        <?php include 'components/footer.php'; ?>
     </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    
     <script>
-        $("#header_loc").load("components/header.html");
-    </script>
-    <script>
-        $("#nav_loc").load("components/navbar.html");
-    </script>
-    <script>
-        $("#foot_loc").load("components/footer.html");
-    </script>
-    <script>
-        window.onload = function() {
-            document.getElementById('nav_research').classList.add('active');
-        }
+        document.getElementById('nav_research').classList.add('active');
     </script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <?php include 'research/research_plot.php'; ?>
 </body>
 
 </html>

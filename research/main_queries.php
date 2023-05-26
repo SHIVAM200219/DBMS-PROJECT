@@ -217,6 +217,7 @@ try {
                 array_push($dataPoints_domain, $temp);
             }
         }
+        include 'research/research_plot.php'; 
         include 'print_table.php';
         print_table($result);
     }

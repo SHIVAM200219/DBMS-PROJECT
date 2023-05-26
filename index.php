@@ -15,9 +15,11 @@
 <body class="bg-secondary">
     <!-- Header -->
     <div id="header_loc">
+        <?php include 'components/header.php'; ?>
     </div>
     <!-- Navbar -->
     <div id="nav_loc" class="">
+        <?php include 'components/navbar.php'; ?>
     </div>
 
     <div class="bg-secondary">
@@ -66,9 +68,9 @@
     <section>
         <div class="d-flex flex-wrap flex-md-nowrap bg-secondary  mb-2 mx-auto rounded justify-content-around">
             <div class="m-2 shadow-lg" id="chartContainer" style="height: 300px; width: 100%;"></div>
-            <div class="m-2 bg-light p-auto shadow-lg" id="chartContainer1" style="height: 300px; width: 100%; margin-bottom:-20px;"><iframe name="ngram_chart"class="pl-3"
-							src="https://books.google.com/ngrams/interactive_chart?content=electrical+engineering,mechanical+engineering,artificial+intelligence,data+science,computer+science&year_start=1880&year_end=2023&corpus=26&smoothing=3"
-							width= 100% height="250"></iframe> <p class="text-center bg-light">Artificial Intelligence is gaining popularity</p> </div>
+            <div class="m-2 bg-light p-auto shadow-lg" id="chartContainer1" style="height: 300px; width: 100%; margin-bottom:-20px;"><iframe name="ngram_chart" class="pl-3" src="https://books.google.com/ngrams/interactive_chart?content=electrical+engineering,mechanical+engineering,artificial+intelligence,data+science,computer+science&year_start=1880&year_end=2023&corpus=26&smoothing=3" width=100% height="250"></iframe>
+                <p class="text-center bg-light">Artificial Intelligence is gaining popularity</p>
+            </div>
         </div>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         <?php include 'components/variables.php'; ?>
@@ -86,7 +88,7 @@
             }
             $p = $conn->query("SELECT * FROM {$myDB}.prof_data WHERE pid BETWEEN 2 AND 5");
             while ($rowp = $p->fetch(PDO::FETCH_ASSOC)) {
-               array_push($pname, $rowp['pname']);
+                array_push($pname, $rowp['pname']);
             }
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
@@ -97,6 +99,7 @@
 
     <!-- Footer -->
     <div id="foot_loc">
+    <?php include 'components/footer.php'; ?>
     </div>
 
     <!-- Optional JavaScript -->
@@ -104,15 +107,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.js"></script> -->
     <script>
-        $("#header_loc").load("components/header.html");
-    </script>
-    <script>
-        $("#nav_loc").load("components/navbar.html");
-    </script>
-    <script>
-        $("#foot_loc").load("components/footer.html");
+        document.getElementById('nav_home').classList.add('active');
     </script>
     <?php include 'home/citationPerYear.php'; ?>
 </body>

@@ -199,6 +199,5 @@
             }]
         });
         chart7.render();       
-        document.getElementById('nav_analysis').classList.add('active');
     }
 </script>
