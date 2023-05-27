@@ -37,7 +37,8 @@ $myDB = "research";
 <h3>Pagewise Specificatons: </h3> <br>
 <h4>
 1. <b> Home </b> :-  </h4>
-   <h5> Preview </h5> <br> <img width="800" height= '500' alt="Home" src="https://github.com/SHIVAM200219/DBMS-PROJECT/assets/95133586/3ebb7201-78c4-46a4-acf8-2dc4aa24bd17"><br>
+   <h5> Preview </h5> <br> <img width="800" height='500' alt="image" src="https://github.com/SHIVAM200219/DBMS-PROJECT/assets/95133586/e9ab7025-496b-40e6-b8b2-9cf227431fc5">
+<br>
     Overview <br>
             (a) Descriptions - Why Data Science ? And How IITG & MFSDSAI meets the requirements. <br>
             (b) A spline plot to show Citations Per Year Counts for our Core Faculty. <br>
